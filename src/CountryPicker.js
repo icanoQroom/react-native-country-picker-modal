@@ -120,7 +120,14 @@ export default class CountryPicker extends Component {
         if (a[1] < b[1]) return -1;
         if (a[1] > b[1]) return 1;
         return 0;
-      }).map(c => c[0]);
+      })
+      .map(c => c[0]);
+
+      for(var x in countryList) {
+        countryList[x] == "XX" ? countryList.push( countryList.splice(x,1)[0] ) : 0;
+      }
+
+      console.log(countryList);
 
     this.state = {
       modalVisible: false,
