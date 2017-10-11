@@ -35,7 +35,7 @@ let styles = {};
 // but for now just ios
 // const isEmojiable = Platform.OS === 'ios' ||
 // (Platform.OS === 'android' && Platform.Version >= 21);
-const isEmojiable = Platform.OS === 'ios';
+const isEmojiable = false;
 
 if (isEmojiable) {
   countries = require('../data/countries-emoji');
