@@ -314,9 +314,16 @@ export default class CountryPicker extends Component {
               </View>)
           }
         </TouchableOpacity>
+
         <Modal
+          transparent={Platform.OS === 'android' ? false : true}
           visible={this.state.modalVisible}
-          onRequestClose={() => this.setState({ modalVisible: false })}
+          onRequestClose={() => {
+            this.setState({ modalVisible: false })
+            if(this.props.onClose && Platform.OS === 'ios') {
+                this.props.onClose();
+            }
+        }}
         >
           <View style={styles.modalContainer}>
             <View style={styles.header}>
